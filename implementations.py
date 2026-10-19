@@ -1,5 +1,38 @@
 import numpy as np
 
+def least_squares(y, tx):
+    """Calculate least squares regression.
+
+    Args:
+        y: real value, shape (N,).
+        tx: Preprocessed feature matrix, shape (N, D).
+
+    Returns:
+        w: Weights, shape (D,).
+        loss: Loss at weights w.
+    """
+    
+    w = np.linalg.solve(tx.T @ tx, tx.T @ y)
+    loss = 0.5 * np.mean(np.square(y - tx @ w))
+    return w, loss
+
+
+def ridge_regression(y, tx, lambda_):
+    """Calculate ridge regression.
+    
+    Args:
+        y: real value, shape (N,).
+        tx: Preprocessed feature matrix, shape (N, D).
+        lambda_: Nonnegative regularization coefficient.
+
+    Returns:
+        w: Weights, shape (D,).
+        loss: Loss, excluding the penalty.    
+    """
+    w = np.linalg.solve(tx.T @ tx + 2 * y.shape[0] * lambda_ * np.identity(tx.shape[1]), tx.T @ y)
+    loss = 0.5 * np.mean(np.square(y - tx @ w))
+    return w, loss
+
 
 def _logistic_sigmoid(t):
     """Apply sigmoid on t."""
