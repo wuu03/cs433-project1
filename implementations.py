@@ -1,5 +1,11 @@
 import numpy as np
 
+
+def compute_loss(y, tx, w):
+    """Return half the mean squared residual."""
+    return np.mean((y - tx @ w) ** 2) / 2
+
+
 def least_squares(y, tx):
     """Calculate least squares regression.
 
@@ -11,15 +17,15 @@ def least_squares(y, tx):
         w: Weights, shape (D,).
         loss: Loss at weights w.
     """
-    
+
     w = np.linalg.solve(tx.T @ tx, tx.T @ y)
-    loss = 0.5 * np.mean(np.square(y - tx @ w))
+    loss = compute_loss(y, tx, w)
     return w, loss
 
 
 def ridge_regression(y, tx, lambda_):
     """Calculate ridge regression.
-    
+
     Args:
         y: real value, shape (N,).
         tx: Preprocessed feature matrix, shape (N, D).
@@ -27,10 +33,12 @@ def ridge_regression(y, tx, lambda_):
 
     Returns:
         w: Weights, shape (D,).
-        loss: Loss, excluding the penalty.    
+        loss: Loss, excluding the penalty.
     """
-    w = np.linalg.solve(tx.T @ tx + 2 * y.shape[0] * lambda_ * np.identity(tx.shape[1]), tx.T @ y)
-    loss = 0.5 * np.mean(np.square(y - tx @ w))
+    w = np.linalg.solve(
+        tx.T @ tx + 2 * y.shape[0] * lambda_ * np.identity(tx.shape[1]), tx.T @ y
+    )
+    loss = compute_loss(y, tx, w)
     return w, loss
 
 
@@ -56,6 +64,7 @@ def _logistic_gradient(y, tx, w):
     gradient = (tx.T @ error) / num_samples
 
     return gradient
+
 
 def logistic_regression(y, tx, initial_w, max_iters, gamma):
     """Train logistic regression using gradient descent.
@@ -83,9 +92,7 @@ def logistic_regression(y, tx, initial_w, max_iters, gamma):
     return w, loss
 
 
-def reg_logistic_regression(
-    y, tx, lambda_, initial_w, max_iters, gamma
-):
+def reg_logistic_regression(y, tx, lambda_, initial_w, max_iters, gamma):
     """Train L2-regularized logistic regression using gradient descent.
 
     Args:
@@ -111,9 +118,6 @@ def reg_logistic_regression(
 
     return w, loss
 
-def compute_loss(y, tx, w):
-    """Return half the mean squared residual."""
-    return np.mean((y - tx @ w) ** 2) / 2
 
 def mean_squared_error_gd(y, tx, initial_w, max_iters, gamma):
     """Linear regression with exactly max_iters full gradient steps."""
