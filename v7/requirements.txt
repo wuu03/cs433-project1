@@ -1,0 +1,2 @@
+# Only NumPy is used for data processing and machine learning.
+numpy>=1.24

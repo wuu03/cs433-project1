@@ -1,0 +1,2362 @@
+{
+  "version": 1,
+  "source_url": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+  "source_sha256": "238bdeecb39c35e871384473cb24c02e3866e4f719da8fcf42154a35c051faca",
+  "notes": "Field-specific nonresponse codes and five documented none-to-zero mappings. Existing derived missingness flags and six calculated fields with ambiguous CSV scaling are preserved. Mixed-unit frequencies, weight and height are not normalized by this mapping. No respondent data from the source is used.",
+  "rules": {
+    "LANDLINE": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        12
+      ]
+    },
+    "HHADULT": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        12
+      ]
+    },
+    "GENHLTH": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        13
+      ]
+    },
+    "PHYSHLTH": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [
+        88
+      ],
+      "source_pages": [
+        13
+      ]
+    },
+    "MENTHLTH": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [
+        88
+      ],
+      "source_pages": [
+        13
+      ]
+    },
+    "POORHLTH": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [
+        88
+      ],
+      "source_pages": [
+        14
+      ]
+    },
+    "HLTHPLN1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        14
+      ]
+    },
+    "PERSDOC2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        14
+      ]
+    },
+    "MEDCOST": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        15
+      ]
+    },
+    "CHECKUP1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        15
+      ]
+    },
+    "BPHIGH4": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        16
+      ]
+    },
+    "BPMEDS": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        16
+      ]
+    },
+    "BLOODCHO": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        16
+      ]
+    },
+    "CHOLCHK": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        17
+      ]
+    },
+    "TOLDHI2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        17
+      ]
+    },
+    "CVDSTRK3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        18
+      ]
+    },
+    "ASTHMA3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        18
+      ]
+    },
+    "ASTHNOW": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        19
+      ]
+    },
+    "CHCSCNCR": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        19
+      ]
+    },
+    "CHCOCNCR": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        19
+      ]
+    },
+    "CHCCOPD1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        20
+      ]
+    },
+    "HAVARTH3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        20
+      ]
+    },
+    "ADDEPEV2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        20
+      ]
+    },
+    "CHCKIDNY": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        21
+      ]
+    },
+    "DIABETE3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        21
+      ]
+    },
+    "DIABAGE2": {
+      "missing_codes": [
+        98,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        21
+      ]
+    },
+    "MARITAL": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        22
+      ]
+    },
+    "EDUCA": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        22
+      ]
+    },
+    "RENTHOM1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        23
+      ]
+    },
+    "NUMHHOL2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        23
+      ]
+    },
+    "NUMPHON2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        24
+      ]
+    },
+    "CPDEMO1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        24
+      ]
+    },
+    "VETERAN3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        25
+      ]
+    },
+    "EMPLOY1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        25
+      ]
+    },
+    "CHILDREN": {
+      "missing_codes": [
+        99
+      ],
+      "zero_codes": [
+        88
+      ],
+      "source_pages": [
+        25
+      ]
+    },
+    "INCOME2": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        26
+      ]
+    },
+    "INTERNET": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        26
+      ]
+    },
+    "WEIGHT2": {
+      "missing_codes": [
+        7777,
+        9999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        27
+      ]
+    },
+    "HEIGHT3": {
+      "missing_codes": [
+        7777,
+        9999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        27
+      ]
+    },
+    "PREGNANT": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        27
+      ]
+    },
+    "QLACTLM2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        28
+      ]
+    },
+    "USEEQUIP": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        28
+      ]
+    },
+    "BLIND": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        28
+      ]
+    },
+    "DECIDE": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        29
+      ]
+    },
+    "DIFFWALK": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        29
+      ]
+    },
+    "DIFFDRES": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        29
+      ]
+    },
+    "DIFFALON": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        30
+      ]
+    },
+    "SMOKE100": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        30
+      ]
+    },
+    "SMOKDAY2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        30
+      ]
+    },
+    "STOPSMK2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        31
+      ]
+    },
+    "LASTSMK2": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        31
+      ]
+    },
+    "USENOW3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        32
+      ]
+    },
+    "ALCDAY5": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        32
+      ]
+    },
+    "AVEDRNK2": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        33
+      ]
+    },
+    "DRNK3GE5": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [
+        88
+      ],
+      "source_pages": [
+        33
+      ]
+    },
+    "MAXDRNKS": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        33
+      ]
+    },
+    "FRUITJU1": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        34
+      ]
+    },
+    "FRUIT1": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        34
+      ]
+    },
+    "FVBEANS": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        35
+      ]
+    },
+    "FVGREEN": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        35
+      ]
+    },
+    "FVORANG": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        36
+      ]
+    },
+    "VEGETAB1": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        36
+      ]
+    },
+    "EXERANY2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        37
+      ]
+    },
+    "EXRACT11": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        38,
+        39,
+        40
+      ]
+    },
+    "EXEROFT1": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        40
+      ]
+    },
+    "EXERHMM1": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        40
+      ]
+    },
+    "EXRACT21": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        41,
+        42,
+        43
+      ]
+    },
+    "EXEROFT2": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        43
+      ]
+    },
+    "EXERHMM2": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        43
+      ]
+    },
+    "STRENGTH": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        44
+      ]
+    },
+    "LMTJOIN3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        44
+      ]
+    },
+    "ARTHDIS2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        44
+      ]
+    },
+    "ARTHSOCL": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        45
+      ]
+    },
+    "JOINPAIN": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        45
+      ]
+    },
+    "SEATBELT": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        46
+      ]
+    },
+    "FLUSHOT6": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        46
+      ]
+    },
+    "FLSHTMY2": {
+      "missing_codes": [
+        777777,
+        999999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        47
+      ]
+    },
+    "IMFVPLAC": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        47
+      ]
+    },
+    "PNEUVAC3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        48
+      ]
+    },
+    "HIVTST6": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        48
+      ]
+    },
+    "HIVTSTD3": {
+      "missing_codes": [
+        777777,
+        999999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        48
+      ]
+    },
+    "WHRTST10": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        49
+      ]
+    },
+    "PDIABTST": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        49
+      ]
+    },
+    "PREDIAB1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        50
+      ]
+    },
+    "INSULIN": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        50
+      ]
+    },
+    "BLDSUGAR": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        51
+      ]
+    },
+    "FEETCHK2": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        51
+      ]
+    },
+    "DOCTDIAB": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        52
+      ]
+    },
+    "CHKHEMO3": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        52
+      ]
+    },
+    "FEETCHK": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        53
+      ]
+    },
+    "EYEEXAM": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        53
+      ]
+    },
+    "DIABEYE": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        54
+      ]
+    },
+    "DIABEDU": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        54
+      ]
+    },
+    "CAREGIV1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        55
+      ]
+    },
+    "CRGVREL1": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        56
+      ]
+    },
+    "CRGVLNG1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        56
+      ]
+    },
+    "CRGVHRS1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        57
+      ]
+    },
+    "CRGVPRB1": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        57
+      ]
+    },
+    "CRGVPERS": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        58
+      ]
+    },
+    "CRGVHOUS": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        58
+      ]
+    },
+    "CRGVMST2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        59
+      ]
+    },
+    "CRGVEXPT": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        59
+      ]
+    },
+    "VIDFCLT2": {
+      "missing_codes": [
+        7
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        60
+      ]
+    },
+    "VIREDIF3": {
+      "missing_codes": [
+        7
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        60
+      ]
+    },
+    "VIPRFVS2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        61
+      ]
+    },
+    "VINOCRE2": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        61
+      ]
+    },
+    "VIEYEXM2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        62
+      ]
+    },
+    "VIINSUR2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        62
+      ]
+    },
+    "VICTRCT4": {
+      "missing_codes": [
+        7
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        63
+      ]
+    },
+    "VIGLUMA2": {
+      "missing_codes": [
+        7
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        63
+      ]
+    },
+    "VIMACDG2": {
+      "missing_codes": [
+        7
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        64
+      ]
+    },
+    "CIMEMLOS": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        64
+      ]
+    },
+    "CDHOUSE": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        65
+      ]
+    },
+    "CDASSIST": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        65
+      ]
+    },
+    "CDHELP": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        66
+      ]
+    },
+    "CDSOCIAL": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        66
+      ]
+    },
+    "CDDISCUS": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        67
+      ]
+    },
+    "WTCHSALT": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        67
+      ]
+    },
+    "LONGWTCH": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        68
+      ]
+    },
+    "DRADVISE": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        68
+      ]
+    },
+    "ASTHMAGE": {
+      "missing_codes": [
+        98,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        68
+      ]
+    },
+    "ASATTACK": {
+      "missing_codes": [
+        7
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        69
+      ]
+    },
+    "ASERVIST": {
+      "missing_codes": [
+        98
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        69
+      ]
+    },
+    "ASDRVIST": {
+      "missing_codes": [
+        98
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        69
+      ]
+    },
+    "ASRCHKUP": {
+      "missing_codes": [
+        98,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        70
+      ]
+    },
+    "ASACTLIM": {
+      "missing_codes": [
+        777,
+        999
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        70
+      ]
+    },
+    "ASYMPTOM": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        71
+      ]
+    },
+    "ASNOSLEP": {
+      "missing_codes": [
+        7
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        71
+      ]
+    },
+    "ASTHMED3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        72
+      ]
+    },
+    "ASINHALR": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        72
+      ]
+    },
+    "HAREHAB1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        73
+      ]
+    },
+    "STREHAB1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        73
+      ]
+    },
+    "CVDASPRN": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        73
+      ]
+    },
+    "ASPUNSAF": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        74
+      ]
+    },
+    "RLIVPAIN": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        74
+      ]
+    },
+    "RDUCHART": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        74
+      ]
+    },
+    "RDUCSTRK": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        75
+      ]
+    },
+    "ARTTODAY": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        75
+      ]
+    },
+    "ARTHWGT": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        75
+      ]
+    },
+    "ARTHEXER": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        76
+      ]
+    },
+    "ARTHEDU": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        76
+      ]
+    },
+    "TETANUS": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        77
+      ]
+    },
+    "HPVADVC2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        77
+      ]
+    },
+    "HPVADSHT": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        78
+      ]
+    },
+    "SHINGLE2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        78
+      ]
+    },
+    "HADMAM": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        78
+      ]
+    },
+    "HOWLONG": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        79
+      ]
+    },
+    "HADPAP2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        79
+      ]
+    },
+    "LASTPAP2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        80
+      ]
+    },
+    "HPVTEST": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        80
+      ]
+    },
+    "HPLSTTST": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        81
+      ]
+    },
+    "HADHYST2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        81
+      ]
+    },
+    "PROFEXAM": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        82
+      ]
+    },
+    "LENGEXAM": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        82
+      ]
+    },
+    "BLDSTOOL": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        83
+      ]
+    },
+    "LSTBLDS3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        83
+      ]
+    },
+    "HADSIGM3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        84
+      ]
+    },
+    "HADSGCO1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        84
+      ]
+    },
+    "LASTSIG3": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        85
+      ]
+    },
+    "PCPSAAD2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        85
+      ]
+    },
+    "PCPSADI1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        86
+      ]
+    },
+    "PCPSARE1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        86
+      ]
+    },
+    "PSATEST1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        86
+      ]
+    },
+    "PSATIME": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        87
+      ]
+    },
+    "PCPSARS1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        87
+      ]
+    },
+    "PCPSADE1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        88
+      ]
+    },
+    "PCDMDECN": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        88
+      ]
+    },
+    "SCNTMNY1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        89
+      ]
+    },
+    "SCNTMEL1": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        89
+      ]
+    },
+    "SCNTPAID": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        90
+      ]
+    },
+    "SCNTWRK1": {
+      "missing_codes": [
+        97,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        90
+      ]
+    },
+    "SCNTLPAD": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        91
+      ]
+    },
+    "SCNTLWK1": {
+      "missing_codes": [
+        97,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        91
+      ]
+    },
+    "SXORIENT": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        92
+      ]
+    },
+    "TRNSGNDR": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        92
+      ]
+    },
+    "RCSGENDR": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        93
+      ]
+    },
+    "RCSRLTN2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        93
+      ]
+    },
+    "CASTHDX2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        94
+      ]
+    },
+    "CASTHNO2": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        94
+      ]
+    },
+    "EMTSUPRT": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        94
+      ]
+    },
+    "LSATISFY": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        95
+      ]
+    },
+    "ADPLEASR": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        95
+      ]
+    },
+    "ADDOWN": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        95
+      ]
+    },
+    "ADSLEEP": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        96
+      ]
+    },
+    "ADENERGY": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        96
+      ]
+    },
+    "ADEAT1": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        96
+      ]
+    },
+    "ADFAIL": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        97
+      ]
+    },
+    "ADTHINK": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        97
+      ]
+    },
+    "ADMOVE": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        97
+      ]
+    },
+    "MISTMNT": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        98
+      ]
+    },
+    "ADANXEV": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        98
+      ]
+    },
+    "_CHISPNC": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        102
+      ]
+    },
+    "_CRACE1": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        102
+      ]
+    },
+    "_CPRACE": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        103
+      ]
+    },
+    "_RFHLTH": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        104
+      ]
+    },
+    "_HCVU651": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        105
+      ]
+    },
+    "_RFHYPE5": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        105
+      ]
+    },
+    "_CHOLCHK": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        105
+      ]
+    },
+    "_RFCHOL": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        106
+      ]
+    },
+    "_LTASTH1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        106
+      ]
+    },
+    "_CASTHM1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        107
+      ]
+    },
+    "_ASTHMS1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        107
+      ]
+    },
+    "_PRACE1": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        108
+      ]
+    },
+    "_MRACE1": {
+      "missing_codes": [
+        77,
+        99
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        109
+      ]
+    },
+    "_HISPANC": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        109
+      ]
+    },
+    "_RACE": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        110
+      ]
+    },
+    "_RACEG21": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        110
+      ]
+    },
+    "_RACEGR3": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        111
+      ]
+    },
+    "_AGEG5YR": {
+      "missing_codes": [
+        14
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        112
+      ]
+    },
+    "_AGE65YR": {
+      "missing_codes": [
+        3
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        112
+      ]
+    },
+    "_RFBMI5": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        115
+      ]
+    },
+    "_CHLDCNT": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        116
+      ]
+    },
+    "_EDUCAG": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        116
+      ]
+    },
+    "_INCOMG": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        117
+      ]
+    },
+    "_SMOKER3": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        117
+      ]
+    },
+    "_RFSMOK3": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        118
+      ]
+    },
+    "DRNKANY5": {
+      "missing_codes": [
+        7,
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        118
+      ]
+    },
+    "DROCDY3_": {
+      "missing_codes": [
+        900
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        118
+      ]
+    },
+    "_RFBING5": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        119
+      ]
+    },
+    "_DRNKWEK": {
+      "missing_codes": [
+        99900
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        119
+      ]
+    },
+    "_RFDRHV5": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        119
+      ]
+    },
+    "_FRTLT1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        123
+      ]
+    },
+    "_VEGLT1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        123
+      ]
+    },
+    "_TOTINDA": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        125
+      ]
+    },
+    "_PACAT1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        132
+      ]
+    },
+    "_PAINDX1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        132
+      ]
+    },
+    "_PA150R2": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        132
+      ]
+    },
+    "_PA300R2": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        133
+      ]
+    },
+    "_PA30021": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        133
+      ]
+    },
+    "_PASTRNG": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        133
+      ]
+    },
+    "_PAREC1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        134
+      ]
+    },
+    "_PASTAE1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        134
+      ]
+    },
+    "_LMTACT1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        134
+      ]
+    },
+    "_LMTWRK1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        135
+      ]
+    },
+    "_LMTSCL1": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        135
+      ]
+    },
+    "_RFSEAT2": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        135
+      ]
+    },
+    "_RFSEAT3": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        136
+      ]
+    },
+    "_FLSHOT6": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        136
+      ]
+    },
+    "_PNEUMO2": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        136
+      ]
+    },
+    "_AIDTST3": {
+      "missing_codes": [
+        9
+      ],
+      "zero_codes": [],
+      "source_pages": [
+        137
+      ]
+    }
+  }
+}
