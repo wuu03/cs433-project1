@@ -1,63 +1,132 @@
-# EPFL CS-433 Project 1 — MICHD prediction (v7)
+# EPFL CS-433 Project 1 — MICHD Prediction
 
-NumPy-only pipeline predicting coronary heart disease / myocardial infarction (MICHD)
-from the BRFSS 2015 survey. Only NumPy and the Python standard library are used
-(no pandas / scikit-learn / external data).
+Prediction of self-reported coronary heart disease and myocardial infarction
+(MICHD) from the BRFSS 2015 survey. The repository contains the final ensemble,
+pretrained weights, training and evaluation scripts, and the six required course
+method implementations. Model training and inference use NumPy and the Python
+standard library.
 
-## Result
+**Authors:** Ruhan Liu, Yun-Chia Shih, Jingru Wang.
 
-| | 5-fold OOF F1 | OOF average precision |
-|---|---:|---:|
-| v5/v6 best single backbone (previous) | 0.4446 | 0.4332 |
-| **v7 ensemble (this version)** | **0.4487** | **0.4380** |
+## Results
 
-Authors: Ruhan Liu, Yun-Chia Shih, Jingru Wang.
+| Metric | Final ensemble |
+|---|---:|
+| 5-fold OOF best-threshold F1 | 0.4487 |
+| OOF average precision | 0.4380 |
+| AIcrowd F1 | 0.460 |
+| AIcrowd accuracy | 0.881 |
 
-`artifacts/submission.csv`: 109,379 rows, 14,580 predicted positives (13.3%),
-labels in {-1, +1}, test-ID order preserved. **AIcrowd: F1 0.460, accuracy 0.881** (best so far).
-Previous AIcrowd F1: v1 0.432, v2 0.436, v3 0.454, v4 0.444, v5 0.452, v6 0.452.
+The saved submission contains 109,379 predictions, including 14,580 positive
+predictions (13.3%). Labels are `-1` and `+1`, with IDs in test-file order.
 
-## Model
+## Setup and data
 
-1. `features.py` — codebook cleaning (`survey_codes.json`: "don't know/refused" → -1,
-   "none" (88) → 0), removal of 14 sampling/administration fields, and derived
-   features: exact age (recovered from `MAXVO2_`, which is computed from un-capped
-   age), alcohol days/month, number of chronic conditions, activity limitations,
-   unknown answers and missing answers.
-2. `gbdt.py` — histogram gradient-boosted trees written from scratch: 63 quantile
-   bins + a dedicated missing-value bin, leaf-wise growth (31 leaves), Newton leaf
-   values with L2, histogram subtraction, row bagging or GOSS sampling, feature
-   subsampling.
-3. `nn.py` — embedding MLP: every (feature, bin) pair has a learned 6-d embedding,
-   followed by a 256-64 ReLU MLP with dropout, Adam and cosine learning-rate decay,
-   positive-class weight 4.
-4. `ensemble.py` — two GBDTs (`gbA` bagging, `gbB` GOSS + positive weight 2) and five
-   NN seeds, trained on **all** labelled rows. Log-odds are de-shifted by
-   log(class weight) and blended 0.6 trees / 0.4 networks. The decision threshold is
-   the median of 50 bootstrap F1-optimal thresholds on the out-of-fold blend.
-5. `cv.py` — 5-fold stratified CV of each member (out-of-fold scores in
-   `artifacts/cv_oof.npz`).
-
-## Reproduce
+From the repository root, install the runtime dependency:
 
 ```sh
-python run.py           # inference with artifacts/model.npz -> artifacts/submission.csv (~1 min)
-python run.py --train   # retrain all members on the full training set (~30 min), then predict
-python run.py --cv      # recompute out-of-fold predictions (slow, 1-2 h), then retrain
+python -m pip install -r requirements.txt
 ```
 
-Data are expected in `data/dataset/` (`x_train.csv`, `y_train.csv`, `x_test.csv`);
-use `--data-dir` otherwise. Set `OPENBLAS_NUM_THREADS=1` to avoid thread oversubscription.
+Download the competition data from
+[AIcrowd](https://www.aicrowd.com/challenges/epfl-machine-learning-project-1)
+and place the three files at these paths:
 
-## Files
+| File | Contents |
+|---|---|
+| `data/dataset/x_train.csv` | Training IDs and features |
+| `data/dataset/y_train.csv` | Training IDs and labels |
+| `data/dataset/x_test.csv` | Test IDs and features |
 
-- `implementations.py` — the six required methods (unchanged); `helpers.py` — course helpers.
-- `run.py`, `data.py`, `features.py`, `gbdt.py`, `nn.py`, `ensemble.py`, `cv.py` — v7 pipeline.
-- `artifacts/model.npz` (saved models + threshold), `artifacts/cv_oof.npz` (OOF scores).
-- `docs/v7_analysis.md` — bottleneck analysis, all experiments (kept and rejected).
-- `baselines.py` — linear baselines from the required methods under the same CV
-  (ridge F1 0.4290, logistic GD 0.3114, logistic with 1/4 of negatives 0.4224).
-- `report.tex` / `report.pdf` — 2-page report for v7; `make_figure.py` draws `report_fig.pdf`.
-  Build: `TEXINPUTS=.:./latex-example-paper//: pdflatex report.tex` (twice).
+The `--data-dir` option supports another directory containing these filenames.
 
-Older versions (v1–v6 code and artifacts) are in the git history (`proj 1 v1` … `proj 1 v6`).
+## Reproduce the submission
+
+Run from the repository root:
+
+```sh
+python run.py
+```
+
+This loads `artifacts/model.npz`, including the saved binning parameters,
+fitted model parameters and decision threshold, and writes predictions to
+`artifacts/submission.csv`. Ensemble combination weights are configured in
+`ensemble.py`. The default inference path reads `x_test.csv`.
+
+To choose another data directory or output file:
+
+```sh
+python run.py --data-dir /path/to/dataset --out artifacts/reproduced_submission.csv
+```
+
+## Training and evaluation
+
+```sh
+python run.py --train
+python run.py --cv
+python baselines.py
+```
+
+- `--train` trains all ensemble members on the full labelled dataset and selects
+  a threshold using the saved OOF scores in `artifacts/cv_oof.npz`, then generates
+  predictions.
+- `--cv` recomputes 5-fold stratified OOF predictions, selects a threshold, trains
+  the full-data ensemble, and generates predictions.
+- `baselines.py` evaluates ridge regression and logistic regression under the
+  same fold assignment. Logistic runs use 300 gradient-descent steps.
+
+The training commands update the model and submission artifacts. The `--cv`
+command also updates the saved OOF scores. Training configuration is defined in
+`ensemble.py`.
+
+OOF scores support model selection and threshold search. For the tree and neural
+models, feature-bin boundaries are fitted on all labelled feature rows before
+cross-validation, so validation-fold feature distributions contribute to the
+shared boundaries. Reported OOF F1 uses the F1-maximising cutoff; submission
+predictions use the median of optimal cutoffs from 50 bootstrap OOF resamples.
+
+## Final model
+
+1. **Features:** survey-code cleaning, removal of 14 administrative fields, and
+   derived age, alcohol-frequency, chronic-condition, activity-limitation and
+   response-count features, giving 314 inputs.
+2. **GBDT:** two histogram-based gradient-boosted tree configurations with
+   leaf-wise growth, up to 31 leaves, missing-value handling, and row and feature
+   sampling.
+3. **Neural networks:** five embedding MLPs, each using 6-dimensional feature-bin
+   embeddings, 256–64 hidden layers, dropout, Adam and positive-class weighting.
+4. **Ensemble:** class-weight-adjusted log-odds are averaged within each model
+   family and combined with weights of 0.6 for trees and 0.4 for networks.
+   Submission members are fitted on all labelled rows, with 15% more GBDT trees
+   than the CV configurations.
+
+## Repository contents
+
+| Path | Purpose |
+|---|---|
+| `run.py` | Inference, full-data training and CV entry point |
+| `implementations.py` | Six required course methods |
+| `helpers.py`, `data.py` | Submission CSV generation and data loading |
+| `features.py`, `survey_codes.json` | Feature engineering and survey-code rules |
+| `gbdt.py`, `nn.py` | NumPy model implementations |
+| `ensemble.py`, `cv.py` | Model configuration, blending, thresholds and CV |
+| `baselines.py` | Linear baseline evaluation |
+| `artifacts/model.npz` | Saved binning parameters, fitted members and threshold |
+| `artifacts/cv_oof.npz` | OOF labels, folds and member scores |
+| `artifacts/submission.csv` | Final competition predictions |
+| `docs/` | Feature-processing notes and model analysis |
+| `report.pdf`, `report.tex`, `report_fig.pdf` | Report and supporting figure |
+| `make_figure.py` | Report figure generation |
+| `requirements.txt` | Runtime dependency |
+
+## Course tests and report
+
+Run the latest public tests using the environment and commands in the course
+[grading instructions](https://github.com/epfml/ML_course/tree/main/projects/project1/grading_tests).
+
+Compile the report with a LaTeX installation providing the `IEEEtran` class:
+
+```sh
+pdflatex report.tex
+pdflatex report.tex
+```
