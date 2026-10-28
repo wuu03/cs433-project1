@@ -97,7 +97,7 @@ Model & F1 & AP\\
 \midrule
 Ridge regression & 0.4290 & 0.4119\\
 Reg.\ logistic reg.\ (300 GD steps) & 0.3114 & 0.2693\\
-Logistic reg., 1/4 of negatives & 0.4224 & 0.3907\\
+Class-rebalanced logistic reg. & 0.4224 & 0.3907\\
 \midrule
 gbB, raw columns (no feat.\ eng.) & 0.4477 & 0.4336\\
 gbB (engineered features) & 0.4481 & 0.4352\\
@@ -114,12 +114,11 @@ NN, no class weight & 0.4435 & 0.4268\\
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:res} summarises the experiments. The linear baselines built from the
-required implementations (standardised features with median imputation and missingness
-indicators; $\lambda=10^{-4}$ for ridge, $10^{-5}$ and step 0.5 for logistic) are clearly
-weaker than both nonlinear models. Plain logistic GD converges slowly with a 9\% prior;
-subsampling the negatives (equivalent to weighting positives $\times4$) fixes this but
-still trails ridge. Interactions between age,
+Table~\ref{tab:res} summarises the experiments. The linear baselines built from the 
+required implementations (standardised features with median imputation and missingness indicators;
+$\lambda=10^{-4}$ for ridge; $\lambda=10^{-5}$, step size 0.5 and 300 GD steps for regularised 
+logistic regression) achieve lower F1 than both nonlinear models. Plain logistic GD converges slowly with
+a 9\% prior; class rebalancing improves this baseline but still trails ridge. Interactions between age,
 sex, general health and comorbidities matter. Feature engineering helps the trees by
 +0.0016 AP. For the network, weighting the rare positive class improves the ranking
 itself (+0.0034 AP), not only the threshold. The trees and the networks make different
