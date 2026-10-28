@@ -6,6 +6,26 @@ def compute_loss(y, tx, w):
     return np.mean((y - tx @ w) ** 2) / 2
 
 
+def mean_squared_error_gd(y, tx, initial_w, max_iters, gamma):
+    """Linear regression with exactly max_iters full gradient steps."""
+    w = np.array(initial_w, dtype=float, copy=True)
+    for _ in range(max_iters):
+        w -= gamma * (tx.T @ (tx @ w - y)) / len(y)
+    return w, compute_loss(y, tx, w)
+
+
+def mean_squared_error_sgd(y, tx, initial_w, max_iters, gamma):
+    """Linear regression with one uniformly sampled observation per step.
+
+    Call np.random.seed before this function to reproduce the sampled sequence.
+    """
+    w = np.array(initial_w, dtype=float, copy=True)
+    for _ in range(max_iters):
+        i = np.random.randint(len(y))
+        w -= gamma * tx[i] * (tx[i] @ w - y[i])
+    return w, compute_loss(y, tx, w)
+
+
 def least_squares(y, tx):
     """Calculate least squares regression.
 
@@ -117,23 +137,3 @@ def reg_logistic_regression(y, tx, lambda_, initial_w, max_iters, gamma):
     loss = _logistic_loss(y, tx, w)
 
     return w, loss
-
-
-def mean_squared_error_gd(y, tx, initial_w, max_iters, gamma):
-    """Linear regression with exactly max_iters full gradient steps."""
-    w = np.array(initial_w, dtype=float, copy=True)
-    for _ in range(max_iters):
-        w -= gamma * (tx.T @ (tx @ w - y)) / len(y)
-    return w, compute_loss(y, tx, w)
-
-
-def mean_squared_error_sgd(y, tx, initial_w, max_iters, gamma):
-    """Linear regression with one uniformly sampled observation per step.
-
-    Call np.random.seed before this function to reproduce the sampled sequence.
-    """
-    w = np.array(initial_w, dtype=float, copy=True)
-    for _ in range(max_iters):
-        i = np.random.randint(len(y))
-        w -= gamma * tx[i] * (tx[i] @ w - y[i])
-    return w, compute_loss(y, tx, w)
