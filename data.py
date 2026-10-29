@@ -1,4 +1,5 @@
 """Memory-friendly CSV loading (NumPy + standard library only)."""
+
 import csv
 from pathlib import Path
 import numpy as np
@@ -27,4 +28,10 @@ def load(data_dir, train=True):
     h2, tr = read_csv(data_dir / "x_train.csv")
     _, lab = read_csv(data_dir / "y_train.csv")
     assert h2 == header and np.array_equal(tr[:, 0], lab[:, 0]), "schema / id mismatch"
-    return tr[:, 1:], (lab[:, 1] == 1).astype(np.int8), test[:, 1:], test[:, 0].astype(np.int64), header[1:]
+    return (
+        tr[:, 1:],
+        (lab[:, 1] == 1).astype(np.int8),
+        test[:, 1:],
+        test[:, 0].astype(np.int64),
+        header[1:],
+    )

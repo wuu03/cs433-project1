@@ -6,15 +6,31 @@
 
 Only NumPy and the Python standard library are used.
 """
+
 import argparse
 import time
 from pathlib import Path
 import numpy as np
 from data import load
 from features import engineer
-from gbdt import Binner, binner_to_arrays, binner_from_arrays, gbdt_to_arrays, gbdt_from_arrays
+from gbdt import (
+    Binner,
+    binner_to_arrays,
+    binner_from_arrays,
+    gbdt_to_arrays,
+    gbdt_from_arrays,
+)
 from nn import nn_to_arrays, nn_from_arrays
-from ensemble import GB_MEMBERS, NN_SEEDS, NN_POS_WEIGHT, train_full, predict, blend, best_threshold, deshift
+from ensemble import (
+    GB_MEMBERS,
+    NN_SEEDS,
+    NN_POS_WEIGHT,
+    train_full,
+    predict,
+    blend,
+    best_threshold,
+    deshift,
+)
 from helpers import create_csv_submission
 
 ROOT = Path(__file__).resolve().parent
@@ -35,7 +51,9 @@ def oof_threshold():
 
 
 def main():
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     ap.add_argument("--train", action="store_true")
     ap.add_argument("--cv", action="store_true")
     ap.add_argument("--data-dir", default=str(ROOT / "data" / "dataset"))
@@ -47,14 +65,19 @@ def main():
     x, y, xt, test_ids, names = load(args.data_dir, train=train)
     ft, _ = engineer(xt, names)
     if train:
-        f, _ = engineer(x, names); del x
+        f, _ = engineer(x, names)
+        del x
         binner = Binner().fit(f)
-        B = np.ascontiguousarray(binner.transform(f).T); del f
+        B = np.ascontiguousarray(binner.transform(f).T)
+        del f
         if args.cv:
             from cv import run_cv
+
             run_cv(B, y, ART / "cv_oof.npz", log=log)
         threshold, f1, rate = oof_threshold()
-        log(f"OOF blend: F1 {f1:.4f}, threshold {threshold:.4f}, positive rate {rate:.4f}")
+        log(
+            f"OOF blend: F1 {f1:.4f}, threshold {threshold:.4f}, positive rate {rate:.4f}"
+        )
         models = train_full(B, y, log=log)
         arrays = binner_to_arrays(binner)
         for k in GB_MEMBERS:
@@ -72,7 +95,9 @@ def main():
     threshold = float(d["threshold"])
     pred = np.where(score >= threshold, 1, -1)
     create_csv_submission(test_ids, pred, args.out)
-    log(f"wrote {args.out}: {len(pred)} rows, {int((pred == 1).sum())} positives ({np.mean(pred == 1):.4f})")
+    log(
+        f"wrote {args.out}: {len(pred)} rows, {int((pred == 1).sum())} positives ({np.mean(pred == 1):.4f})"
+    )
 
 
 if __name__ == "__main__":
